@@ -7,21 +7,13 @@ using namespace std;
 
 void sortArray(int arr[], int n)
 {
-    for (int i = 0; i < n - i + 1; i++)
+    for (int i = 1; i <= n - 1; i++)
     {
-        for (int j = i; j < n; j++)
+        for (int j = 0; j <= n - i - 1; j++)
         {
-            if (arr[i] > arr[j])
-                swap(arr[i], arr[j]);
+            if (arr[j] > arr[j + 1])
+                swap(arr[j], arr[j + 1]);
         }
-    }
-}
-
-void printArray(int arr[], int n)
-{
-    for (int i = 0; i < n; i++)
-    {
-        cout << arr[i] << " ";
     }
 }
 
@@ -36,6 +28,9 @@ int main()
     }
 
     sortArray(arr, n);
-    printArray(arr, n);
+    for (int j = 0; j < n; j++)
+    {
+        cout << arr[j] << " ";
+    }
     return 0;
 }
