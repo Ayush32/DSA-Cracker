@@ -7,9 +7,22 @@ using namespace std;
 
 void sortArray(int arr[], int n)
 {
+    for (int i = 0; i < n - i + 1; i++)
+    {
+        for (int j = i; j < n; j++)
+        {
+            if (arr[i] > arr[j])
+                swap(arr[i], arr[j]);
+        }
+    }
+}
+
+void printArray(int arr[], int n)
+{
     for (int i = 0; i < n; i++)
     {
-        }
+        cout << arr[i] << " ";
+    }
 }
 
 int main()
@@ -21,4 +34,8 @@ int main()
     {
         cin >> arr[i];
     }
+
+    sortArray(arr, n);
+    printArray(arr, n);
+    return 0;
 }
