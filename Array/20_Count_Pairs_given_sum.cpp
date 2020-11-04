@@ -9,17 +9,14 @@ using namespace std;
 int countPairs(int arr[], int n, int k)
 {
     int pair = 0;
-    int i = 0;
-    int j = n - 1;
 
-    while (i <= j)
+    for (int i = 0; i < n; i++)
     {
-        if (arr[i] + arr[j] == k)
-        {
-            pair++;
-        }
-        i++;
-        j--;
+        for (int j = i + 1; j < n; j++)
+            if (arr[i] + arr[j] == k)
+            {
+                pair++;
+            }
     }
     return pair;
 }
