@@ -5,30 +5,35 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void majorityElement(int arr[],int n){
- 
-    int ans = 0;
-    int ans2 = 0;
-    int temp[n] = {0};
-
-    int size = sizeof(temp)/sizeof(temp[0]);
-    
+int findCandidate(int arr[],int n){
+   int maj_index = 0,count = 1;
     for(int i = 0;i<n;i++){
-        if(temp[arr[i]] == 0){
-            temp[arr[i]]= 1;
+        if(arr[maj_index] == arr[i])
+            count++;
         
-          
-        }
-        if(temp[arr[i]] == 1){
-            ans  = arr[i];
-        }
-    }
-    for(int i = 0;i<size;i++){
-        if(temp[i] == 0){
-            ans2 = temp[i]; 
-        }
-    }
+        else
+        count--;
 
+        if(count == 0){
+            maj_index = i;
+           count  = 1;
+        }
+    }
+   return arr[maj_index];
+}
+
+int majorityElement(int arr[],int n,int cand){
+    int count = 0;
+    for(int i = 0;i<n;i++){
+    if(arr[i] == cand)
+    count++;
+    }
+    if(count > n/2)
+        return cand;
+    
+    else
+    return -1;
+    
 }
 
 
@@ -40,6 +45,7 @@ int main() {
         cin >> arr[i];
 
     }
- majorityElement(arr,n);
+    int cand = findCandidate(arr,n);
+ cout << majorityElement(arr,n,cand);
     return 0;
 }
