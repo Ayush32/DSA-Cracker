@@ -8,10 +8,10 @@ using namespace std;
 int Findpair(int arr[],int n,int sum){
     int flag = 0;
     for(int i = 0;i<n;i++){
-        for(int j = i +1 ;j<n;j++){
-            if(abs(arr[i]-arr[j]) == sum)
+       
+            if(abs(arr[i]-arr[i+1]) == sum)
             flag = 1;
-        }
+    
 
     }
     if(flag == 1)
